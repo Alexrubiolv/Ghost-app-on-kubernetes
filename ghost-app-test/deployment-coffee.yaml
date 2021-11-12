@@ -56,7 +56,7 @@ spec:
         - name: database__connection__database
           value: coffee
         volumeMounts:
-        - mountPath: /var/lib/coffee/content
+        - mountPath: /var/lib/ghost/content
           name: coffee-vol
       volumes:
         - name: coffee-vol
