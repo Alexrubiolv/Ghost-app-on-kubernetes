@@ -3,16 +3,17 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: coffee-svc
-
+  name:coffee-svc
 spec:
-  selector: istio-ingressgateway
-    app: coffee
-  ports:
-  - protocol: HTTP
-    name: http
-    port: 80
-    targetPort: 2368
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
 
     
 ---
