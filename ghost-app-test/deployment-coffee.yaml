@@ -71,7 +71,7 @@ metadata:
   name: coffee-alb
   namespace: test
   labels:
-    run: wordpress-alb
+    run: coffee-alb
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/successCodes: 301,302,200
