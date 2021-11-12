@@ -10,9 +10,9 @@ spec:
   selector:
     app: coffee
   ports:
-  - protocol: HTTP
+  - protocol: TCP
     name: http
-    port: 8080
+    port: 80
     targetPort: 2368
     
 ---
@@ -62,4 +62,26 @@ spec:
         - name: coffee-vol
           persistentVolumeClaim:
             claimName: coffee-pv-claim
+            
+ ---
+ 
+ apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: coffee-alb
+  namespace: test
+  labels:
+    run: wordpress-alb
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/successCodes: 301,302,200
+spec:
+  rules:
+  - host: 
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: coffee-service
+          servicePort: 80
 
