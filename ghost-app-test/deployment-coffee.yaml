@@ -1,20 +1,19 @@
 #Mainteiner Alexandre Rubio (alexrfoliver@gmail.com)
 #Create the Service
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
+apiVersion: v1
+kind: Service
 metadata:
-  name:coffee-svc
-spec:
-  selector:
-    istio: ingressgateway # use Istio default gateway implementation
-  servers:
-  - port:
-      number: 80
-      name: http
-      protocol: HTTP
-    hosts:
-    - "*"
+  name: coffee-svc
 
+spec:
+  type: NodePort
+  selector:
+    app: coffee
+  ports:
+  - protocol: TCP
+    name: http
+    port: 80
+    targetPort: 2368
     
 ---
 #Create the Deployment
