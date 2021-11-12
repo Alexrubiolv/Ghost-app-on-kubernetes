@@ -1,13 +1,13 @@
 #Mainteiner Alexandre Rubio (alexrfoliver@gmail.com)
 #Create the Service
-apiVersion: v1
-kind: Service
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
 metadata:
   name: coffee-svc
 
 spec:
   type: LoadBalancer
-  selector:
+  selector: ingressgateway
     app: coffee
   ports:
   - protocol: TCP
