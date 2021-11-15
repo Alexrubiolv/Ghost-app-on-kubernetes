@@ -1,12 +1,12 @@
 #Mainteiner Alexandre Rubio (alexrfoliver@gmail.com)
 #Create the Service
 apiVersion: v1
-kind: Service
+kind: Ingress
 metadata:
   name: coffee-svc
 
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: coffee
   ports:
