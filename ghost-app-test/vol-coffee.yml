@@ -8,7 +8,7 @@ metadata:
     type: local-path
     app: coffee
 spec:
-  storageClassName: microk8s-hostpath
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
