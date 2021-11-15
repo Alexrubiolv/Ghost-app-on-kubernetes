@@ -5,10 +5,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: coffee-pv-claim
   labels:
-    type: local-path
+    type: microk8s-hostpath
     app: coffee
 spec:
-  storageClassName: local-path
+  storageClassName: microk8s-hostpath
   accessModes:
     - ReadWriteOnce
   resources:
