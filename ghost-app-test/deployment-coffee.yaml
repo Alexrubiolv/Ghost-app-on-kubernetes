@@ -6,7 +6,7 @@ metadata:
   name: coffee-svc
 
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: coffee
   ports:
