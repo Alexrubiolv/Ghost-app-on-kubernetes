@@ -1,7 +1,7 @@
 #Mainteiner Alexandre Rubio (alexrfoliver@gmail.com)
 #Create the Service
 apiVersion: v1
-kind: Ingress
+kind: Service
 metadata:
   name: coffee-svc
 
